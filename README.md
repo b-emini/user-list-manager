@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# User List Manager
 
-## Getting Started
+This application is a simple user management system built with Next.js, demonstrating CRUD (Create, Read, Update, Delete) operations and search functionality. It utilizes a mock API powered by Express.js and leverages state management with Zustand and data fetching/caching with React Query. 
 
-First, run the development server:
+## Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Frontend:**
+    - Next.js (v14.2.15)
+    - React (v18)
+    - React Query (v3.39.3 / v5.59.13) - For data fetching, caching, and state management related to server interactions
+    - Zustand (v5.0.0-rc.2) - For lightweight global state management
+    - React Query Devtools (v5.59.13) - For debugging React Query (optional)
+- **Backend (Mock API):**
+    - Express.js - For creating the mock API
+    - Node.js
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **View User List:** Display a list of users with their details.
+- **Create User:** Add new users to the list.
+- **Update User:** Modify existing user information.
+- **Delete User:** Remove users from the list.
+- **Search Users:** Filter users by name or email. 
+- **Pagination:**  Browse users across multiple pages if the list is large.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- **`app`:** Contains the main application logic.
+    - **`api`:**  Handles API routes using Next.js API routes.
+    - **`components`:** Reusable React components. 
+        - `UserForm.tsx`: Handles both creating and updating users.
+        - `UserList.tsx`:  Displays the list of users. 
+        - `SearchBar.tsx`: Allows users to search for specific users.
+    - **`lib`:** Contains helper functions and utilities.
+        - `api/userApi.ts`: Contains functions for making API requests related to users.
+        - `store/useUserStore.ts`: Manages global state using Zustand, such as the search query.
+    - **`page.tsx`: The root page component, likely rendering the user list.
+- **`pages/api/users`:**  Example directory for Next.js API routes if handling API logic there.
+- **`public`:** Static assets like images, fonts, etc.
+- **`styles`:**  CSS files for styling the application.
+- **`server.js`:** Sets up the Express.js server for the mock API. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation and Running
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/b-emini/user-list-manager (private atm)
+   cd user-list-manager
+        npm install
+        npm run dev
+    cd mock-api-server
+        npm install
+        npm run dev 
